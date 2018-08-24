@@ -27,7 +27,7 @@ var bodyparser=require('body-parser');
 // });
 //this all content is not needed now
 var app = express();
-
+const port=process.env.PORT||3000;
 app.use(bodyparser.json());
 
 app.post('/todos', (req, res) => {
@@ -68,8 +68,8 @@ res.send({todo});
 });
 });
 
-app.listen(3000, () => {
-  console.log('Started on port 3000');
+app.listen(port, () => {
+  console.log(`connected to port${port}`);
 });
 
 module.exports = {app};
